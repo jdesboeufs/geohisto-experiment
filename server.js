@@ -7,8 +7,12 @@ const towns = geohisto('towns');
 
 app.use(cors());
 
-app.get('/towns', function (req, res) {
-  res.send(towns.at(req.query.at).get(req.query.code));
+app.get('/towns/:code', function (req, res) {
+  if (req.query.at) {
+    res.send(towns.at(req.query.at).get(req.params.code));
+  } else {
+    res.send(towns.get(req.params.code));
+  }
 });
 
 app.listen(process.env.PORT || 5000);
