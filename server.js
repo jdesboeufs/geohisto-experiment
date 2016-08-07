@@ -8,11 +8,15 @@ const towns = geohisto('towns');
 app.use(cors());
 
 app.get('/towns/:code', function (req, res) {
+  let result;
   if (req.query.at) {
-    res.send(towns.at(req.query.at).get(req.params.code));
+    result = towns.at(req.query.at).get(req.params.code);
+  } else if (req.query.redirectTo === 'actual') {
+    result = towns.get(req.params.code).getActual();
   } else {
-    res.send(towns.get(req.params.code));
+    result = towns.get(req.params.code);
   }
+  res.json(result);
 });
 
 app.listen(process.env.PORT || 5000);
