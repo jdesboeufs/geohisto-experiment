@@ -109,7 +109,7 @@ function getDataset(name) {
 
 function selectByInstant(records, instant) {
   const candidates = records.filter(record => record.isValidAt(instant));
-  if (candidates.length === 0) throw new Error('No record found for this instant');
+  if (candidates.length === 0) return null;
   // if (candidates.length > 1) throw new Error('At least two records match for this instant');
   return candidates[0];
 }
@@ -125,7 +125,7 @@ function selectMostRecent(records) {
     if (a.distanceFromNow === b.distanceFromNow) return 0;
     return (a.distanceFromNow < b.distanceFromNow) ? -1 : 1;
   });
-  if (candidates.length === 0) throw new Error('Unable to select the most recent record');
+  if (candidates.length === 0) return null;
   return candidates[0].record;
 }
 
