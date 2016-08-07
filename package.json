@@ -1,0 +1,32 @@
+{
+  "name": "geohisto-experiment",
+  "version": "0.0.1",
+  "description": "French towns and lands since 1943",
+  "main": "index.js",
+  "scripts": {
+    "prepare-data": "node scripts/prepareData",
+    "postinstall": "npm run prepare-data",
+    "test": "tape test/*.js"
+  },
+  "keywords": [
+    "geo",
+    "towns",
+    "departments",
+    "regions",
+    "France",
+    "history",
+    "cog"
+  ],
+  "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "^1.1.7",
+    "debug": "^2.2.0",
+    "moment": "^2.14.1",
+    "superagent": "^2.1.0",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
+  }
+}
