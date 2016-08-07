@@ -6,6 +6,7 @@
   "scripts": {
     "prepare-data": "node scripts/prepareData",
     "postinstall": "npm run prepare-data",
+    "start": "node server",
     "test": "tape test/*.js"
   },
   "keywords": [
@@ -20,8 +21,10 @@
   "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.7.1",
     "csv-parse": "^1.1.7",
     "debug": "^2.2.0",
+    "express": "^4.14.0",
     "moment": "^2.14.1",
     "superagent": "^2.1.0",
     "through2": "^2.0.1"

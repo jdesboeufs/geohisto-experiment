@@ -29,6 +29,10 @@ class Record {
     if (this.isActual()) return this;
     return this.successor.getActual();
   }
+
+  toJSON() {
+    return { name: this.name, code: this.code, status: this.status };
+  }
 }
 
 const datasets = {};
