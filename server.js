@@ -13,6 +13,7 @@ app.get('/towns/:code', function (req, res) {
     result = towns.at(req.query.at).get(req.params.code);
   } else if (req.query.redirectTo === 'actual') {
     result = towns.get(req.params.code).getActual();
+    return res.redirect('/towns/' + result.code)
   } else {
     result = towns.get(req.params.code);
   }
